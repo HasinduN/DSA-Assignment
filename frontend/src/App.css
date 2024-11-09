@@ -1,0 +1,102 @@
+/* frontend/src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  color: #fff;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav ul li a:hover {
+  color: #ffd700;
+}
+
+/* Generic Container Styling */
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* Form Styling for Login & Register */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Image Styling for Game */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* Leaderboard Styling */
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leaderboard-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Profile & Dashboard Specifics */
+.profile-details,
+.dashboard-overview {
+  text-align: center;
+}
