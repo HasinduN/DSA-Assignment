@@ -7,7 +7,7 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Game from "./pages/game/Game";
 import Profile from "./pages/profile/Profile";
-import Leaderboard from "./pages/Leaderboard";
+import LeaderBoard from "./pages/leaderBoard/LeaderBoard";
 import Welcome from "./pages/welcome/Welcome";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
             path="/leaderboard"
             element={
               <ProtectedRoute>
-                <Leaderboard />
+                <LeaderBoard />
               </ProtectedRoute>
             }
           />

@@ -51,10 +51,14 @@
   }
   
   .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;
   }
   
-  /* Feedback styling */
+  .score-text {
+    font-weight: bold;
+    font-size: 40px;
+  }
+
   .feedback-text {
     margin-top: 10px;
     font-size: 18px;
@@ -69,4 +73,37 @@
     color: #dc3545; /* Red for incorrect answer */
   }
   
+  .lives-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
   
+  .heart {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    background-size: cover;
+  }
+  
+  .yellow-heart {
+    background-image: url('..//..//assets/yellow-heart.png');
+  }
+
+  .exit-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .exit-button:hover {
+    background-color: #ffffff;
+  }

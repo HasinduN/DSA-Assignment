@@ -1,0 +1,53 @@
+.leaderboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    font-family: 'Arial', sans-serif; 
+  }
+
+  .board-card {
+    background-color: #ffee00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #686868;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .leaderboard-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .leaderboard-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .leaderboard-container li {
+    margin: 10px 0;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .name {
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .username {
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .score {
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  

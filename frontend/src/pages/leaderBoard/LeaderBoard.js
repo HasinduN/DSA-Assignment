@@ -1,4 +1,4 @@
-// src/pages/Leaderboard.js
+/*// src/pages/Leaderboard.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -53,4 +53,47 @@ const styles = {
   },
 };
 
+export default Leaderboard; */
+
+// frontend/src/pages/Leaderboard.js
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./LeaderBoard.css";
+
+const Leaderboard = () => {
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/leaderboard");
+        setLeaderboard(response.data); // Set leaderboard data
+      } catch (error) {
+        console.error("Error fetching leaderboard:", error);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
+
+  return (
+    <div className="leaderboard-container">
+      <div className="board-card">
+      <h2 className="title">Leaderboard</h2>
+      <ul>
+        {leaderboard.map((entry, index) => (
+          <li key={index}>
+            <span className="username">{entry.username}</span>
+            <span className="score">{entry.highScore} points</span>
+          </li>
+        ))}
+      </ul>
+      </div>
+    </div>
+  );
+};
+
 export default Leaderboard;
+
+
+

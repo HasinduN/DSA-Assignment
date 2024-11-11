@@ -9,6 +9,7 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // To display login errors
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -18,11 +19,20 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        login(response.data.user);
-        navigate("/dashboard");
+        //login(response.data.user);
+        //navigate("/dashboard");
+        localStorage.setItem("authToken", response.data.token);
+
+        login({
+          isAuthenticated: true,
+          user: response.data.user,
+        });
+
+        navigate("/dashboard"); // Redirect to dashboard after login
       }
     } catch (error) {
       console.error("Login error:", error);
+      setErrorMessage(error.response?.data?.message || "Failed to login. Please try again.");
     }
   };
 

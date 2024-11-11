@@ -1,22 +1,46 @@
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    background-color: #000000;
-    padding: 20px;
-  }
-  
-  .profile-container h1 {
-    font-size: 40px;
-    color: #ffee00;
-    margin-bottom: 20px;
-  }
-  
-  .profile-container p {
-    font-size: 18px;
-    color: #ffee00;
-    margin-bottom: 30px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000; /* Black background for contrast */
+  font-family: 'Arial', sans-serif;
+}
+
+.profile-card {
+  background-color: #ffee00; /* Bright yellow background for the card */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(104, 104, 104, 0.8); /* Subtle shadow for depth */
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #000000; /* Black text for contrast against yellow */
+  font-weight: bold;
+}
+
+.profile-field {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #000000; /* Black text for better readability on yellow */
+}
+
+.profile-label {
+  font-weight: bold;
+  color: #000000; /* Keep label color consistent with other text */
+}
+
+.profile-container p {
+  color: #ffee00; /* Yellow text for warnings or messages */
+  font-size: 16px;
+}
+
+.error-message {
+  color: red; /* Red for error messages to differentiate them */
+  font-size: 16px;
+  margin-top: 10px;
+}
