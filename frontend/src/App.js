@@ -1,3 +1,4 @@
+//frontend/src/App.js
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";

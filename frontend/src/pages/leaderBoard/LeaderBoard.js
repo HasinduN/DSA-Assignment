@@ -55,7 +55,7 @@ const styles = {
 
 export default Leaderboard; */
 
-// frontend/src/pages/Leaderboard.js
+// frontend/src/pages/leaderboard/Leaderboard.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./LeaderBoard.css";
@@ -94,6 +94,3 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
-
-
-

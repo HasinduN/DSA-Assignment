@@ -1,4 +1,5 @@
-import api from "../Api"; // Assuming Api.js is in the root `src` folder
+//frontend/src/services/ApiService.js
+import api from "../Api";
 
 // Fetches banana data
 export const fetchBananaData = async () => {

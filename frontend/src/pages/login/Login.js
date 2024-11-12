@@ -1,15 +1,15 @@
-// src/pages/Login.js
+//frontend/src/pages/login/Login.js
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
-import "./Login.css"; // Import the CSS file
+import "./Login.css";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // To display login errors
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -19,8 +19,6 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        //login(response.data.user);
-        //navigate("/dashboard");
         localStorage.setItem("authToken", response.data.token);
 
         login({
@@ -28,7 +26,7 @@ const Login = () => {
           user: response.data.user,
         });
 
-        navigate("/dashboard"); // Redirect to dashboard after login
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -56,6 +54,7 @@ const Login = () => {
       <button onClick={handleLogin} className="login-button">
         Login
       </button>
+      { errorMessage && <p className="login-error"> {errorMessage} </p>}
       <p className="register-text">
         Don't have an account? <a href="/register">Register here</a>
       </p>

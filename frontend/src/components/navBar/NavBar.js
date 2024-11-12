@@ -1,6 +1,7 @@
-import React, {useContext} from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "..//..//context/AuthContext"
+// frontend/src/components/navBar/NavBar.js
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -9,27 +10,35 @@ const NavBar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login"); // Redirect to login page
+    navigate("/login");
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/dashboard">Brain Banana</Link>
+        <button onClick={() => navigate("/dashboard")} className="navbar-button logo-button">
+          BRAIN BANANA
+        </button>
       </div>
       <ul className="navbar-links">
         <li>
-          <Link to="/game">Game</Link>
+          <button onClick={() => navigate("/game")} className="navbar-button">
+            GAME
+          </button>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          <button onClick={() => navigate("/profile")} className="navbar-button">
+            PROFILE
+          </button>
         </li>
         <li>
-          <Link to="/leaderboard">Leaderboard</Link>
+          <button onClick={() => navigate("/leaderboard")} className="navbar-button">
+            LEADERBOARD
+          </button>
         </li>
         <li>
-          <button onClick={handleLogout} className="logout-button">
-            Logout
+          <button onClick={handleLogout} className="navbar-button logout-button">
+            LOGOUT
           </button>
         </li>
       </ul>
@@ -38,3 +47,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

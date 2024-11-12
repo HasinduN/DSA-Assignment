@@ -1,3 +1,4 @@
+//frontend/src/pages/welcome/Welcome.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Welcome.css"; // Import CSS file for styling
@@ -7,7 +8,7 @@ const Welcome = () => {
 
   return (
     <div className="welcome-container">
-      <h1>Welcome to Brain Banana!</h1>
+      <h1 className="animated-text"><span>BRAIN BANANA</span></h1>
       <p></p>
       <div className="button-group">
         <button onClick={() => navigate("/login")} className="welcome-button">

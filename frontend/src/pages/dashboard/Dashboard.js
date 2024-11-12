@@ -1,3 +1,4 @@
+//frontend/src/pages/dashboard/Dashboard.js
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -32,6 +33,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-

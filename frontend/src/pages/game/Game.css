@@ -1,32 +1,33 @@
 /* Center the main game container */
 .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    color: #ffee00;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/game-bg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #ffee00;
+  text-align: center;
   }
   
-  /* Title styling */
   .game-container h2 {
-    font-size: 28px;
+    font-size: 50px;
     font-weight: bold;
     color: #ffee00;
     margin-bottom: 20px;
+    margin-top: 10px;
   }
   
-  /* Question image styling */
   .question-image {
     max-width: 100%;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 5px;
   }
   
-  /* Answer input styling */
   .answer-input {
     padding: 10px;
     font-size: 16px;
@@ -36,27 +37,34 @@
     color: #000000;
     border-radius: 5px;
   }
-  
-  /* Submit button styling */
+
   .submit-button {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #000000;
-    background-color: #ffee00;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 15px 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  color: #ffee00;
+  border: 2px solid #ffee00;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
   }
   
   .submit-button:hover {
-    background-color: #ffffff;
+    background-color: #ffee00;
+  color: #000;
+  transform: scale(1.1);
+  }
+
+  .submit-button:active {
+    transform: scale(1.05);
   }
   
   .score-text {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .feedback-text {
@@ -66,18 +74,18 @@
   }
   
   .feedback-correct {
-    color: #28a745; /* Green for correct answer */
+    color: #28a745; 
   }
   
   .feedback-incorrect {
-    color: #dc3545; /* Red for incorrect answer */
+    color: #dc3545;
   }
   
   .lives-container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .heart {
@@ -95,15 +103,39 @@
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: #000000;
+    color: #ffee00;
     background-color: #dc3545;
-    border: none;
-    border-radius: 5px;
+    border: 2px solid #000000;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s, background-color 0.3s;
     margin-top: 20px;
+
   }
 
   .exit-button:hover {
-    background-color: #ffffff;
+    background-color: #ffee00;
+    color: #000;
+    transform: scale(1.1);
+  }
+
+  .exit-button:active {
+    transform: scale(1.05);
+  }
+
+  .animated-title {
+    position: relative;
+    animation: glitch 1s infinite;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    }
+    50% {
+      text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff;
+    }
+    100% {
+      text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff;
+    }
   }

@@ -1,3 +1,4 @@
+//frontend/src/pages/register/Register.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -79,6 +80,3 @@ const Register = () => {
 };
 
 export default Register;
-
-
-
