@@ -1,7 +1,7 @@
 //frontend/src/pages/register/Register.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { registerUser } from "../../services/ApiService";
 import "./Register.css";
 
 const Register = () => {
@@ -15,23 +15,16 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      setError(""); // Clear any previous errors
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
-        name,
-        email,
-        age,
-        username,
-        password,
-      });
-
-      if (response.status === 201 || response.status === 200) {
-        navigate("/login"); // Redirect to login page
-      }
-    } catch (error) {
+      setError("");
+      const data = await registerUser({name, email, age, username, password});
+  
+      navigate("/login");
+    }
+    catch(error) {
       console.error("Registration error:", error);
       setError(error.response?.data?.message || "Failed to register. Please try again.");
     }
-  };
+  }
 
   return (
     <div className="register-container">

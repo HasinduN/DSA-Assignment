@@ -1,8 +1,8 @@
 //frontend/src/pages/login/Login.js
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
+import { loginUser } from "../../services/ApiService";
 import "./Login.css";
 
 const Login = () => {
@@ -14,25 +14,27 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
-        username,
-        password,
+      const data = await loginUser({ username, password }); // Call the service function
+      localStorage.setItem("authToken", data.token); // Save the token in local storage
+  
+      login({
+        isAuthenticated: true,
+        user: data.user,
       });
-      if (response.status === 200) {
-        localStorage.setItem("authToken", response.data.token);
-
-        login({
-          isAuthenticated: true,
-          user: response.data.user,
-        });
-
-        navigate("/dashboard");
-      }
+  
+      navigate("/dashboard"); // Redirect to dashboard on successful login
     } catch (error) {
       console.error("Login error:", error);
-      setErrorMessage(error.response?.data?.message || "Failed to login. Please try again.");
+      if (error.response) {
+        setErrorMessage(error.response.data?.message || "Failed to login. Please try again.");
+      } else if (error.request) {
+        setErrorMessage("No response from server. Please check your connection.");
+      } else {
+        setErrorMessage("An unexpected error occurred. Please try again.");
+      }
     }
   };
+  
 
   return (
     <div className="login-container">

@@ -1,7 +1,7 @@
 //frontend/src/pages/profile/Profile.js
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
+import { fetchUserProfile } from "../../services/ApiService";
 import "./Profile.css";
 
 const Profile = () => {
@@ -12,19 +12,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("authToken");
-        if (!token) {
-          setError("No token found, please log in again.");
-          return;
-        }
-
-        const response = await axios.get("http://localhost:5000/api/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setProfile(response.data); // Set the profile data
+        const data = await fetchUserProfile(); // Call the service function
+        setProfile(data); // Set the profile data
       } catch (error) {
         console.error("Error fetching profile:", error);
         setError(error.response?.data?.message || "Failed to load profile.");

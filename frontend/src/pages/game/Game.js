@@ -87,7 +87,7 @@ const Game = () => {
         ))}
       </div>
       
-      <p className="score-text">POINTS : {score}</p>
+      <p className="score-text">POINTS: {score}</p>
       
       {questionImage ? (
         <img src={questionImage} alt="Question" className="question-image" />
