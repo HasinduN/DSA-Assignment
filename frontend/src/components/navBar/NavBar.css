@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #ffee00;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar-logo a {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffee00;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar-links li {
+    display: inline;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: #ffee00;
+    font-size: 20px;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .logout-button {
+    background: none;
+    border: none;
+    color: #ffee00;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    text-decoration: underline;
+  }
+  

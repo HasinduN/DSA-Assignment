@@ -80,7 +80,7 @@ const Game = () => {
   const [userAnswer, setUserAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
   const [score, setScore] = useState(0);
-  const [lives, setLives] = useState(3); // Initialize lives
+  const [lives, setLives] = useState(3);
   const navigate = useNavigate();
 
   // Fetch a new question
@@ -95,6 +95,32 @@ const Game = () => {
       console.error("Error fetching question:", error);
     }
   };
+
+  // Handle game exit and submit score
+  const endGame = async () => {
+    try {
+      await axios.post(
+        "http://localhost:5000/api/game/submit-score",
+        { score },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
+      alert(`Game Over! Your final score: ${score}`);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error submitting score:", error);
+    }
+  };
+
+  // Automatically end game when lives are zero
+  useEffect(() => {
+    if (lives === 0) {
+      endGame();
+    }
+  }, [lives, endGame]);
 
   // Handle answer submission
   const submitAnswer = () => {
@@ -112,32 +138,6 @@ const Game = () => {
     }
 
     setUserAnswer("");
-  };
-
-  // Automatically end game when lives are zero
-  useEffect(() => {
-    if (lives === 0) {
-      endGame();
-    }
-  }, [lives]);
-
-  // Handle game exit and submit score
-  const endGame = async () => {
-    try {
-      await axios.post(
-        "http://localhost:5000/api/game/submit-score",
-        { score },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Include the token
-          },
-        }
-      );
-      alert(`Game Over! Your final score: ${score}`);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error submitting score:", error);
-    }
   };
 
   useEffect(() => {
