@@ -6,15 +6,7 @@ const AuthApi = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // Send cookies with requests
 });
-
-// Add interceptor to attach token automatically
-AuthApi.interceptors.request.use((config) => {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  });
 
 export default AuthApi;

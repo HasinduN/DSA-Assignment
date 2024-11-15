@@ -1,8 +1,8 @@
-//backend/middleware/authMiddleware.js
+// backend/middleware/authMiddleware.js
 import jwt from "jsonwebtoken";
 
 const authenticateToken = (req, res, next) => {
-  const token = req.header("Authorization")?.split(" ")[1];
+  const token = req.cookies.authToken; // Read token from cookies
   if (!token) {
     return res.status(401).json({ message: "Access denied. No token provided." });
   }
@@ -12,7 +12,6 @@ const authenticateToken = (req, res, next) => {
     req.user = { id: decoded.id };
     next();
   } catch (error) {
-    console.error("Token verification failed:", error.message);
     res.status(401).json({ message: "Invalid token" });
   }
 };

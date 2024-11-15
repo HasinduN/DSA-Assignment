@@ -1,7 +1,8 @@
-//backend/Server.js
+// backend/Server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser"; // Add this
 import connectDB from "./config/Db.js";
 
 import gameRoutes from "./routes/Game.js";
@@ -12,7 +13,8 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true })); // Enable credentials for CORS
+app.use(cookieParser()); // Use cookie-parser
 
 // Connect to database
 connectDB();

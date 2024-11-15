@@ -46,13 +46,14 @@ export const AuthProvider = ({ children }) => {
     setAuth({ isAuthenticated: true, user: userData, token });
   };
   
-  
-  
-
-  const logout = () => {
-    setAuth({ isAuthenticated: false, user: null, token: null });
-    localStorage.removeItem("auth");
-    localStorage.removeItem("authToken");
+  const logout = async () => {
+    try {
+      await axios.post("http://localhost:5000/api/auth/logout");
+      setAuth({ isAuthenticated: false, user: null, token: null });
+      localStorage.removeItem("auth");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
 
   return (

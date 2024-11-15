@@ -33,9 +33,7 @@ const Game = () => {
         "http://localhost:5000/api/game/submit-score",
         { score },
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
+          withCredentials: true, // Send cookies with the request
         }
       );
       alert(`Game Over! Your final score: ${score}`);
