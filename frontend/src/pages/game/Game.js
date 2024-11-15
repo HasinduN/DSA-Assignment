@@ -58,13 +58,13 @@ const Game = () => {
 
     if (parsedAnswer === solution) {
       setFeedback("YES YOU ARE CORRECT!");
-      setScore((prevScore) => prevScore + 10); // Increment score
+      setScore((prevScore) => prevScore + 10);
       setTimeout(() => {
         fetchQuestion(); // Fetch a new question
       }, 2000);
     } else {
       setFeedback("NO! Try again!");
-      setLives((prevLives) => prevLives - 1); // Deduct a life
+      setLives((prevLives) => prevLives - 1);
     }
 
     setUserAnswer("");

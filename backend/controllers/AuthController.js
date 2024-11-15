@@ -61,13 +61,3 @@ export const getUserProfile = async (req, res) => {
     res.status(500).json({ message: "Error retrieving profile", error });
   }
 };
-
-
-
-
-
-
-
-
-
-

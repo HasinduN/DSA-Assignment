@@ -11,6 +11,5 @@ const router = express.Router();
 
 //router.get("/banana-data", getGameData);
 router.post("/submit-score", authenticateToken, submitScore);
-//router.get("/leaderBoard", getLeaderBoard);
 
 export default router;
