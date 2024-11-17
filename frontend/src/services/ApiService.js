@@ -2,7 +2,6 @@
 import api from "../GameApi"; // Axios instance for general API calls
 import AuthApi from "../AuthApi"; // Axios instance for auth-related API calls
 
-// Fetch Banana Question Data
 export const fetchBananaData = async () => {
   try {
     const response = await api.get("/game/banana-data"); // Backend endpoint for game data

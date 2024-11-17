@@ -2,7 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import cookieParser from "cookie-parser"; // Add this
+import cookieParser from "cookie-parser";
 import connectDB from "./config/Db.js";
 
 import gameRoutes from "./routes/Game.js";
@@ -16,7 +16,6 @@ app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true })); // Enable credentials for CORS
 app.use(cookieParser()); // Use cookie-parser
 
-// Connect to database
 connectDB();
 
 // Routes

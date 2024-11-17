@@ -12,8 +12,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const data = await fetchUserProfile(); // Call the service function
-        setProfile(data); // Set the profile data
+        const data = await fetchUserProfile();
+        setProfile(data);
       } catch (error) {
         console.error("Error fetching profile:", error);
         setError(error.response?.data?.message || "Failed to load profile.");

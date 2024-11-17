@@ -65,7 +65,7 @@ const AuthWrapper = ({ children }) => {
 
   return (
     <>
-      {auth.isAuthenticated && <NavBar />} {/* Display NavBar only if authenticated */}
+      {auth.isAuthenticated && <NavBar />}
       {children}
     </>
   );
