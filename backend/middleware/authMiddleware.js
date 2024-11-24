@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 
 const authenticateToken = (req, res, next) => {
-  const token = req.cookies.authToken; // Read token from cookies
+  const token = req.cookies.authToken;
   if (!token) {
     return res.status(401).json({ message: "Access denied. No token provided." });
   }

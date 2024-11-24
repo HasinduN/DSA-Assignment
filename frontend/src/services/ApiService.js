@@ -1,11 +1,11 @@
 // frontend/src/services/ApiService.js
-import api from "../GameApi"; // Axios instance for general API calls
-import AuthApi from "../AuthApi"; // Axios instance for auth-related API calls
+import api from "../GameApi";
+import AuthApi from "../AuthApi";
 
 export const fetchBananaData = async () => {
   try {
-    const response = await api.get("/game/banana-data"); // Backend endpoint for game data
-    return response.data; // { question, solution }
+    const response = await api.get("/game/banana-data");
+    return response.data;
   } catch (error) {
     console.error("Error fetching banana data:", error);
     throw error;
